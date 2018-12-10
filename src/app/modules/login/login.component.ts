@@ -16,6 +16,12 @@ import { GroupService } from './group.service';
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild('loginForm') loginForm: NgForm;
+
+  formModel: LoginFormModel;
+  isLoading: boolean;
+  groups = [];
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -30,11 +36,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  @ViewChild('loginForm') loginForm: NgForm;
+  
 
-  formModel: LoginFormModel;
-  isLoading: boolean;
-  groups = [];
+  
 
   ngOnInit() {
     this.groupService

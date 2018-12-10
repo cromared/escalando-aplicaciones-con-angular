@@ -28,11 +28,14 @@
           <mat-label>"Seleccione"</mat-label>
           <mat-select [(ngModel)]="formModel.group" name="group" required #group="ngModel">
               <mat-option value="">Seleccione</mat-option>
-            <mat-option *ngFor='let group of groups' [value]="group.id"></mat-option>
+            <mat-option *ngFor='let group of groups' [value]="group.id">{{group.value}}</mat-option>
            {{group.value}}
           </mat-select>
           <mat-hint>Seleccione su grupo</mat-hint>
-          <mat-error *ngIf="group.invalid"></mat-error>
+          <!--<mat-error *ngIf="group.invalid"></mat-error>-->
+          <mat-error *ngIf="group.invalid">
+            {{ group.errors | json }}
+          </mat-error>          
         </mat-form-field>
         {{formModel| json}}
 
@@ -40,8 +43,7 @@
 
     </mat-card-content>
     <mat-card-actions>
-
-      <button mat-button color="primary">
+            <button mat-button color="primary">
         <mat-icon>lock_open</mat-icon> Login
       </button>
 

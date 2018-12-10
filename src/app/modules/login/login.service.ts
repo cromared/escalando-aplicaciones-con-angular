@@ -25,21 +25,12 @@ export class LoginService {
   }
 
   authenticate(email: String, password: String): Promise<boolean> {
-    return this.http.post<User>(environment.endpoint.auth, {
-        email, password
-    }).toPromise()
+    return this.http.post<User>(environment.endpoint.auth, {email, password})
+    .toPromise()
       .then(user => {
         this.user = user;
         return this.isLoggedIn;
-      });
-    // return this.http.post<User>(environment.endpoint.auth, {
-    //   email, password
-    // }).pipe(
-    //   map(user => {
-    //     this.user = user;
-    //     return this.isLoggedIn;
-    //   })
-    // );
+      });    
   }
 
   logout(): Promise<any> {
