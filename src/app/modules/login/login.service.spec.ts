@@ -21,13 +21,13 @@ describe('LoginService', () => {
       providers: [
         GroupService,
         {
-          provides: HttpClient,
+          provide: HttpClient,
           useClass: HttpClientMock
         }
-        ]
+      ]
     });
     service = TestBed.get(GroupService);
-    httpClientMock = TestBed.get(HttpClient);  
+    httpClientMock = TestBed.get(HttpClient);
   });
 
   it('should be created', () => {
