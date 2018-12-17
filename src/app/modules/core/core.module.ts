@@ -7,24 +7,30 @@ import { LoadingComponent } from './loading/loading.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HighlightDirective } from './highlight/highlight.directive';
 import { UnlessDirective } from './unless/unless.directive';
+import { FilterActivesPipe } from './filter-actives.pipe';
 
 @NgModule({
   declarations: [
     LoadingComponent,
     PageNotFoundComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    FilterActivesPipe
   ],
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
     MatCardModule
   ],
+  providers: [
+    FilterActivesPipe
+  ],
   exports: [
     LoadingComponent,
     PageNotFoundComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    FilterActivesPipe
   ]
 })
 export class CoreModule { }

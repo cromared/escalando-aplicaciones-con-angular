@@ -1,7 +1,7 @@
 {
     "list": [
-        { "id": "A", "value": "Grupo A" },
-        { "id": "B", "value": "Grupo B" },
-        { "id": "C", "value": "Grupo C" }
+        { "id": "A", "value": "Grupo A", "active": true},       
+        { "id": "C", "value": "Grupo C", "active": true},
+        { "id": "B", "value": "Grupo B", "active": true}
     ]
 }
