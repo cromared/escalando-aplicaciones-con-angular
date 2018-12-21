@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginModule } from './modules/login';
+import { AdministracionModule } from './modules/administracion';
 
 import { PageNotFoundComponent } from './modules/core';
 import { LoginComponent, AuthGuard } from './modules/login';
+import { AdministracionComponent } from './modules/administracion';
 import { ResolverService } from './modules/login/resolver.service';
 
+
 const routes: Routes = [
+  {
+    path: 'admin',
+    component: AdministracionComponent,
+    resolve: {
+      groups: ResolverService
+    }
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -32,7 +42,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    LoginModule
+    LoginModule,
+    AdministracionModule
   ],
   exports: [ RouterModule ]
 })
