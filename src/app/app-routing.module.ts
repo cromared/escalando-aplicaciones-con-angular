@@ -12,10 +12,10 @@ import { ResolverService } from './modules/login/resolver.service';
 const routes: Routes = [
   {
     path: 'admin',
-    component: AdministracionComponent
-    /*resolve: {
+    component: AdministracionComponent,
+    resolve: {
       groups: ResolverService
-    }*/
+    }
   },
   {
     path: 'login',
