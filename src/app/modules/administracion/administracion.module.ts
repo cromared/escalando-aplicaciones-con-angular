@@ -8,16 +8,23 @@ import { AdministracionComponent } from './administracion.component';
 import { GroupService } from '../login/group.service';
 import { MatListModule } from '@angular/material/list';
 import { AdminService } from './admin.service';
+import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AdministracionComponent],
   imports: [
     CommonModule,
+    FormsModule,
     MatCardModule,
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [
     GroupService,

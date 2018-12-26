@@ -1,27 +1,32 @@
-
+<form #userForm="ngForm" (ngSubmit)="submit()">
 <mat-card class="cabecera-admin">
     <div class="titulo">
         <mat-label>Crear Usuario</mat-label>
       </div>
   <mat-card-header class="header">    
     <mat-form-field class="input">
-      <input matInput placeholder="Nombre" required >       
+      <input [(ngModel)]="formModel.nombre" #nombre="ngModel" matInput placeholder="Nombre" required >       
     </mat-form-field>  
     <mat-form-field class="input">
-      <input matInput placeholder="Email" required>
+      <input [(ngModel)]="formModel.email" #email="ngModel" matInput placeholder="Email" required>
     </mat-form-field>
     <mat-form-field class="input">
-        <input matInput placeholder="Password " required>
+        <input [(ngModel)]="formModel.password" #password="ngModel" matInput placeholder="Password " required>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Seleccione Grupo</mat-label>
-        <mat-select name="grupo" required>
+        <mat-select name="group" [(ngModel)]="formModel.group" required #group="ngModel">
             <mat-option value="">Seleccione</mat-option>
             <mat-option *ngFor="let group of groups" [value]="group.id">{{group.value}}</mat-option>         
         </mat-select>              
     </mat-form-field>
     <div class="boton-crear">
+        <mat-card-actions>
       <button mat-raised-button>Crear</button>
+      <a routerLink="/user" mat-button role="button">
+        <!--<mat-icon>how_to_reg</mat-icon>--> Register
+      </a>
+      </mat-card-actions>
     </div>
   </mat-card-header>
   <mat-card-content class="content-admin">
@@ -29,4 +34,5 @@
         </mat-list>
   </mat-card-content>
 </mat-card>
+</form>
 

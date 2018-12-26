@@ -2,10 +2,7 @@ import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
-// import { finalize } from 'rxjs/operators';
-
 import { LoginService } from './login.service';
-
 import { LoginFormModel } from './login-form.model';
 import { GroupService } from './group.service';
 import { FilterActivesPipe } from '../core/filter-actives.pipe';
