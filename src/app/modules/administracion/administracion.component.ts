@@ -19,15 +19,14 @@ export class AdministracionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,  
-    private AdminService: AdminService,
+    private router: Router,
+    private adminService: AdminService,
     private groupService: GroupService,
     private filterActives: FilterActivesPipe,
   ) {
     this.formModel = new UserModel({
       email: this.route.snapshot.queryParams.email,
-      group: '',
-      rememberMe: true,
+      group: ''
     });
    }
 
@@ -35,14 +34,14 @@ export class AdministracionComponent implements OnInit {
     this.route.data.subscribe((data: {groups: []}) => {
       this.groups = this.filterActives
       .transform(data.groups);
-    });    
+    });
   }
 
   submit() {
-    if (this.userForm.valid) {      
-      this.AdminService.createUser(this.userForm.value)
-      .subscribe(() => {        
-      }, (reason) => {        
+    if (this.userForm.valid) {
+      this.adminService.createUser(this.userForm.value)
+      .subscribe(() => {
+      }, (reason) => {
         alert(JSON.stringify(reason));
       }
       );

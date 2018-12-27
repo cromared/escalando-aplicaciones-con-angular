@@ -27,11 +27,19 @@ export class AdminService {
       );
   }
 
-  createUser(user): Observable<void> {
+  createUser(user): Observable<User> {
     return this.http
-    .post<void>(environment.endpoint.user, user)
+    .post<User>(environment.endpoint.user, user)
     .pipe(
       retry(2)
     );
   }
 }
+
+export interface User {
+  nombre: string;
+  email: string;
+  password: string;
+  group: string;
+}
+

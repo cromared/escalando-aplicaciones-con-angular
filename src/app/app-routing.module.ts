@@ -25,6 +25,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'user',
+    component: AdministracionComponent,
+    resolve: {
+      user: ResolverService
+    }
+  },
+  {
     path: 'register',
     loadChildren: './pages/register/register.module#RegisterModule'
   },
