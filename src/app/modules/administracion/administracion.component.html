@@ -27,7 +27,8 @@
     </div>
   </mat-card-header>
   <mat-card-content class="content-admin">
-      <mat-list role="list">          
+      <mat-list>  
+            <span class="email"*ngFor="let user of users" > {{user.nombre}} </span>
         </mat-list>
   </mat-card-content>
 </mat-card>

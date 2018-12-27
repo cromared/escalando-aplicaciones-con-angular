@@ -27,9 +27,9 @@ export class AdminService {
       );
   }
 
-  createUser(user): Observable<User> {
+  createUser(user): Observable<void> {
     return this.http
-    .post<User>(environment.endpoint.user, user)
+    .post<void>(environment.endpoint.user, user)
     .pipe(
       retry(2)
     );

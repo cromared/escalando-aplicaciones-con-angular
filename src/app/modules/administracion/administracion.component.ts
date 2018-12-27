@@ -12,7 +12,8 @@ import { AdminService } from './admin.service';
   styleUrls: ['./administracion.component.scss']
 })
 export class AdministracionComponent implements OnInit {
-  @ViewChild('userForm') userForm: NgForm;
+  @ViewChild('userForm')
+  userForm: NgForm;
   formModel: UserModel;
   groups = [];
   users = [];
@@ -38,9 +39,10 @@ export class AdministracionComponent implements OnInit {
   }
 
   submit() {
-    if (this.userForm.valid) {
+    if (this.userForm.valid) {      
+      this.users.push(this.userForm.value)
       this.adminService.createUser(this.userForm.value)
-      .subscribe(() => {
+      .subscribe(() => {        
       }, (reason) => {
         alert(JSON.stringify(reason));
       }
